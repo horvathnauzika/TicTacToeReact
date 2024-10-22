@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import "./Cella.css"
+import { KattContext } from '../context/KattContext';
 
 export default function Cella(props){
-    function katt(){
+    const {katt}=useContext(KattContext)
+
+    function kattintas(){
         //Játéktér katt függvényét kell hívni? -> Megkapta a props-ján keresztül
-        props.katt(props.index)
+        // context katt függvényét használjuk
+        katt(props.index)
     }
 
     return(
-        <div className='cella' onClick={()=>katt()}>{props.jel}</div>
+        <div className='cella' onClick={()=>kattintas()}>{props.jel}</div>
     )
 }
